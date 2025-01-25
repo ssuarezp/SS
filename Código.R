@@ -1,5 +1,5 @@
 library(fitdistrplus)
-data <- read.table("minterremoto_r.txt", header = TRUE)
+data <- read.table("SS/minterremoto_r.txt", header = TRUE)
 x <- data$x
 x <- x[!is.nan(x)]
 #1. Analizar las observaciones
@@ -18,6 +18,9 @@ summary(fit_g)
 plot(fit_e)
 summary(fit_e)
 
+plot(fit_g)
+summary(fit_g)
+
 gofstat(list(fit_e,fit_g))
 
 par(mfrow=c(2,2))
@@ -26,3 +29,4 @@ denscomp(list(fit_e, fit_g), legendtext = plot.legend)
 cdfcomp(list(fit_e, fit_g), legendtext = plot.legend)
 qqcomp(list(fit_e,fit_g),legendtext=plot.legend)
 ppcomp(list(fit_e,fit_g),legendtext=plot.legend)
+
